@@ -1,8 +1,7 @@
-import {Component} from 'react'
-//import Router from 'next/router'
+import { Component } from 'react'
 import Head from 'next/head'
 
-import withCandidatePortal from '../../components/withCandidatePortal'
+import withCandidatePortal from '../../hocs/candidate/withCandidatePortal'
 import DetailsSection from '../../components/portal/HomePage/DetailsSection/DetailsSection'
 import ProfileSection from '../../components/portal/HomePage/ProfileSection/ProfileSection'
 import TestSection from '../../components/portal/HomePage/TestSection/TestSection'

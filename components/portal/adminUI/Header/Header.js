@@ -1,57 +1,36 @@
-import React, {Component} from 'react';
-import cookie from 'cookie'
-import Router from 'next/router'
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { ApolloConsumer } from 'react-apollo';
+// import PropTypes from 'prop-types';
+
+import signout from '../../../../lib/auth/signout'
+
 import {
   Nav,
   NavbarBrand,
   NavbarToggler,
   NavItem,
   NavLink,
-  Badge
 } from 'reactstrap';
 
 class Header extends Component {
-
-  constructor(props) {
-    super(props);
-    this.signout = this.signout.bind(this)
-  }
-
-  sidebarToggle(e) {
+  sidebarToggle = (e) => {
     e.preventDefault();
     document.body.classList.toggle('sidebar-hidden');
   }
 
-  sidebarMinimize(e) {
+  sidebarMinimize = (e) => {
     e.preventDefault();
     document.body.classList.toggle('sidebar-minimized');
   }
 
-  mobileSidebarToggle(e) {
+  mobileSidebarToggle = (e) => {
     e.preventDefault();
     document.body.classList.toggle('sidebar-mobile-show');
   }
 
-  asideToggle(e) {
+  asideToggle = (e) => {
     e.preventDefault();
     document.body.classList.toggle('aside-menu-hidden');
-  }
-
-  signout = () => {
-    console.log('...signing out---');
-    document.cookie = cookie.serialize('token', '', {
-      maxAge: -1 // Expire the cookie immediately
-    })
-
-    // Force a reload of all the current queries now that the user is
-    // logged in, so we don't accidentally leave any state around.
-    //console.log();
-    // console.log(this.props.client);
-    this.props.client.cache.reset().then(() => {
-      // Redirect to a more useful page when signed out
-      Router.push('/user/login')
-    })
   }
 
   render() {
@@ -77,7 +56,35 @@ class Header extends Component {
         </Nav>
         <Nav className="ml-auto" navbar>
           <NavItem className="d-md-down-none">
-            <NavLink href="#!" onClick={this.signout}>Logout <i className="icon-logout"></i></NavLink>
+            <ApolloConsumer>
+              {client => (
+                <NavLink
+                  href="#!" 
+                  onClick={()=>signout(client)}>
+                  Logout <i className="icon-logout"></i>
+                </NavLink>
+              )}
+              {/* {client => (
+              <a href="#!"
+                  onClick={async () => {
+                  const { data : { userIsAuthenticated } } = await client.query({query: USER_ISAUTHENTICATED_QUERY});
+                  if (userIsAuthenticated) {
+                      console.log('isAuth - fetching cookies');
+                      const {userType, token} = cookie.parse(document.cookie)
+                      if (userType && token) {
+                          let target = `/user/dashboard`;
+                          userType == 'PretCandidate' && (target=`/user/dashboard`);
+                          userType == 'Institution' && (target=`/institution/dashboard`);
+                          redirect({}, target)
+                      } else {
+                      toggleModal();
+                      }
+                  } else {
+                      toggleModal();
+                  }
+                  }}>Login</a>
+              )} */}
+              </ApolloConsumer>
           </NavItem>
           <div style={{minWidth: '10px'}}/>
         </Nav>

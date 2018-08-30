@@ -1,12 +1,9 @@
 
-import Head from 'next/head'
-import React, { Component, Fragment } from 'react';
+// import Head from 'next/head'
+import React, { Component } from 'react';
 import {
   Carousel,
   CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
 } from 'reactstrap';
 
 const items = [

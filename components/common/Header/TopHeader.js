@@ -1,5 +1,6 @@
 import { Component, Fragment } from 'react'
-import {Grid, Container, Row, Col } from 'reactstrap';
+import Link from 'next/link'
+// import {Grid, Container, Row, Col } from 'reactstrap';
 
 
 export default class TopHeader extends Component{
@@ -23,9 +24,17 @@ export default class TopHeader extends Component{
                         </Col>
                     </Row> */}
                     <div className="top-header-info header-right">
-                      <a href="#">Contact us</a><span className="seprator">|</span>
-                      <a href="#">Create Account</a><span className="seprator">|</span>
-                      <a href="#">Login</a>
+                      <Link href="#">
+                        <a>Contact us</a>
+                      </Link>
+                      <span className="seprator">|</span>
+                      <Link href="/user/create-account">
+                        <a>Create Account</a>
+                      </Link>
+                      <span className="seprator">|</span>
+                      <Link href="/user/login">
+                        <a>Login</a>
+                      </Link>
                     </div>
                 </div>
             </div>

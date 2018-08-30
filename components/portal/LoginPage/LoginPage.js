@@ -1,8 +1,10 @@
 import {Component} from 'react'
 import Link from 'next/link'
 
-import {Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
+import { Container, Row, Col, CardGroup, Card, CardBody, Button, Input, InputGroup, InputGroupAddon, InputGroupText, Form } from 'reactstrap';
 import { toast } from 'react-toastify';
+
+import LoginForm from './LoginForm';
 
 import { PHONE_REGEX, TOAST_STYLE } from '../../../utils/common'
 
@@ -17,16 +19,15 @@ class Page extends Component {
       passwordValid: null,
       phoneValid: null
     }
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.doLogin = this.doLogin.bind(this);
   }
 
   handlePhoneChange = (event) => {
-    if (PHONE_REGEX.test(event.target.value)){
-      this.setState({phoneValid: true});
-    } else {
-      this.setState({phoneValid: null});
+    if (this.state.phoneValid !== null) {
+      if (PHONE_REGEX.test(event.target.value)){
+        this.setState({phoneValid: true});
+      } else {
+        this.setState({phoneValid: null});
+      }
     }
     this.setState({phone: event.target.value});
   };
@@ -37,9 +38,7 @@ class Page extends Component {
     this.setState({password: event.target.value});
   };
 
-  doLogin = (e) => {
-    //console.log('logging in');
-    //console.log(this.state);
+  handleSubmit = (e) => {
     e.preventDefault()
     e.stopPropagation()
 
@@ -57,7 +56,6 @@ class Page extends Component {
       }
       toast("Your Inputs are not valid", {...TOAST_STYLE.fail});
     }
-
   }
 
   render(){
@@ -72,14 +70,21 @@ class Page extends Component {
                   <CardBody>
                     <h1>Login</h1>
                     <p className="text-muted">Sign In to your account</p>
-                    <Form>
+                    <LoginForm />
+                    {/* <Form onSubmit={this.handleSubmit}>
                       <InputGroup className="mb-3">
                         <InputGroupAddon addonType="prepend">
                           <InputGroupText>
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input valid={this.state.phoneValid} onChange={this.handlePhoneChange} type="text" placeholder="Phone Number"/>
+                        <Input
+                          valid={this.state.phoneValid}
+                          onChange={this.handlePhoneChange}
+                          type="text"
+                          placeholder="Phone Number"
+                          required={true}
+                        />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -87,17 +92,28 @@ class Page extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input valid={this.state.passwordValid} onChange={this.handlePasswordChange} type="password" placeholder="Password"/>
+                        <Input
+                          valid={this.state.passwordValid}
+                          onChange={this.handlePasswordChange}
+                          type="password"
+                          placeholder="Password"
+                          required={true}
+                        />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button type="submit" onClick={this.doLogin} color="primary" className="px-4">Login</Button>
+                          <Button
+                            type="submit"
+                            // onClick={this.doLogin}
+                            color="primary"
+                            className="px-4"
+                          >Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
                         </Col>
                       </Row>
-                    </Form>
+                    </Form> */}
                   </CardBody>
                 </Card>
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: 44 + '%' }}>

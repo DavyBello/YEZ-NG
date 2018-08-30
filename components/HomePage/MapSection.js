@@ -1,5 +1,6 @@
+import NigeriaSvg from './NigeriaSvg'
 
-const ChoiceContent = (props) => {
+const ChoiceContent = () => {
     return (
 
     <section className="about-area section-padding">
@@ -11,8 +12,9 @@ const ChoiceContent = (props) => {
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora veritatis nemo aut ea iusto eos est expedita, quas ab adipisci consectetur tempora jet.</p>
                   </div>
                     <div className="about-details">
-                        <img src="/static/images/nigeria.svg"/>
-                        <p>Abuja</p>
+                      <NigeriaSvg />
+                        {/* <img src="/static/images/nigeria.svg"/> */}
+                        {/* <p>Abuja</p> */}
                     </div>
                 </div>
             </div>

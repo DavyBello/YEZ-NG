@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import withLayout from '../components/withLayout'
+import withLayout from '../hocs/withLayout'
 import About from '../components/AboutPage/About'
 
 
@@ -12,5 +12,5 @@ class AboutPage extends Component{
     )
   }
 }
-  
+
 export default withLayout(AboutPage)

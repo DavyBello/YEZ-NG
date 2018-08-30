@@ -1,7 +1,7 @@
-import {Component} from 'react'
+import { Component } from 'react'
 import Head from 'next/head'
 
-import withCandidateLogin from '../../components/withCandidateLogin'
+import withCandidateLogin from '../../hocs/candidate/withCandidateLogin'
 import Login from '../../components/portal/LoginPage/LoginPage'
 
 class LoginPage extends Component {
@@ -12,11 +12,11 @@ class LoginPage extends Component {
           <title>KTT Youth Empowerment Zone | Candidate Login</title>
         </Head>
         {/* <Login /> */}
-        <Login title={'login'} {...this.props}/>
+        <Login {...this.props}/>
       </div>
     )
   }
 }
 
-// export default LoginPage
+// export default (LoginPage)
 export default withCandidateLogin(LoginPage)

@@ -1,9 +1,10 @@
 import CallToAction from "./CallToAction";
 
 const Footer = (props) => {
+  const { noDonate } = props;
   return (
     <div>
-    <CallToAction />
+      {!noDonate && <CallToAction />}
     <footer className="footer-area parallax">
     <div className="top-footer-area section-padding">
         <div className="container">
@@ -95,6 +96,3 @@ const Footer = (props) => {
   )
 }
 export default Footer
-
-
-

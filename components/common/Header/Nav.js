@@ -1,9 +1,10 @@
-import {Component, Fragment} from 'react'
-// import {Container, Row, Col} from 'reactstrap';
+import { Component, Fragment } from 'react'
+import { withRouter } from 'next/router';
 import Link from 'next/link'
+// import {Container, Row, Col} from 'reactstrap';
 
-export default class Home extends Component {
-  activeMenu = (menu) => (menu==this.props.activePage ? 'menu-active' : '')
+class Nav extends Component {
+  activeMenu = (menu) => (menu==this.props.router.pathname ? 'menu-active' : '')
   render() {
     return (<Fragment>
       <div className="menu-area">
@@ -30,38 +31,6 @@ export default class Home extends Component {
                     </Link>
                   </li>
                   <li>
-                    <Link href="#">
-                      <a>Health<i className="fa fa-caret-down" aria-hidden="true"></i>
-                      </a>
-                    </Link>
-                    <ul className="drop-menu">
-                      <li>
-                        <a href="/job-seeker">Job Seeker Option</a>
-                      </li>
-                      <li>
-                        <a href="/job-seeker">Job Seeker Option</a>
-                      </li>
-                      <li>
-                        <a href="/job-seeker">Job Seeker Option</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">Education<i className="fa fa-caret-down" aria-hidden="true"></i>
-                    </a>
-                    <ul className="drop-menu">
-                      <li>
-                        <a href="/employer">High Schools</a>
-                      </li>
-                      <li>
-                        <a href="#">Universities</a>
-                      </li>
-                      <li>
-                        <a href="#">Employer Option</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
                     <a href="#">Jobs<i className="fa fa-caret-down" aria-hidden="true"></i>
                     </a>
                     <ul className="drop-menu">
@@ -80,11 +49,11 @@ export default class Home extends Component {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">entrepreneurs<i className="fa fa-caret-down" aria-hidden="true"></i>
+                    <a href="#">entrepreneurship<i className="fa fa-caret-down" aria-hidden="true"></i>
                     </a>
                     <ul className="drop-menu">
                       <li>
-                        <a href="#">Job Seekers</a>
+                        <a href="#">LOREM IPSUM DOLOR</a>
                       </li>
                       <li>
                         <a href="#">Employers</a>
@@ -102,12 +71,18 @@ export default class Home extends Component {
                       <a>News</a>
                     </Link>
                   </li>
+                  <li>
+                    <Link href="#">
+                      <a>Donate</a>
+                    </Link>
+                  </li>
                 </ul>
               </nav>
               {/* <div className="donate-box">
-                <a href="/user/login" className="donate-btn hvr-shutter-out-horizontal">Login</a>
-              </div> */
-              }
+                <a href="/user/login"
+                className="donate-btn hvr-shutter-out-horizontal"
+                >Donate</a>
+              </div> */}
             </div>
           </div>
         </div>
@@ -206,3 +181,5 @@ export default class Home extends Component {
     </Fragment>)
   }
 }
+
+export default withRouter(Nav)

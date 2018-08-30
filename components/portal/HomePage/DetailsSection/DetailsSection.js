@@ -1,7 +1,7 @@
-import {Card, CardBody, CardTitle, CardGroup, Row, Col} from 'reactstrap'
-import {Query} from 'react-apollo'
+import { Card, CardBody, CardTitle, CardGroup, Row, Col } from 'reactstrap'
+import { Query } from 'react-apollo'
 
-import {HOME_VIEWER_CANDIDATE_QUERY} from '../../../../lib/backendApi/queries'
+import { HOME_VIEWER_CANDIDATE_QUERY } from '../../../../lib/graphql/queries'
 
 const styles = {
   image: {
@@ -27,7 +27,7 @@ const styles = {
 export default props => {
   return (<CardGroup className="mb-4">
     <Card className="border-dark text-center">
-      <Query query={HOME_VIEWER_CANDIDATE_QUERY}>
+      {/* <Query query={HOME_VIEWER_CANDIDATE_QUERY}>
         {({loading, error, data}) => {
           if (loading)
             return "Loading...";
@@ -52,7 +52,7 @@ export default props => {
             </CardBody>
           )
         }}
-      </Query>
+      </Query> */}
     </Card>
     <Card className="text-white bg-dark text-center">
       <CardBody style={styles.steps}>

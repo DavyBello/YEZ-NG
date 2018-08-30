@@ -1,5 +1,5 @@
-import {Component} from 'react'
-import withLayout from '../hoc/withLayout'
+import { Component } from 'react'
+import withLayout from '../hocs/withLayout'
 import Whatwedo from '../components/HomePage/Whatwedo'
 import BlogSection from '../components/HomePage/BlogSection'
 import SectorsSection from '../components/HomePage/SectorsSection'
@@ -10,9 +10,9 @@ import Slider from '../components/common/Header/Slider'
 // import ParallaxContent from '../components/HomePage/ParallaxContent'
 import ChoiceContent from '../components/ChoiceContent/ChoiceContent'
 import MapSection from '../components/HomePage/MapSection'
-import Sector from '../components/HomePage/Sector'
+// import Sector from '../components/HomePage/Sector'
 import Services from '../components/common/Widgets/Services'
-import ChoiceContentImageLeft from '../components/ChoiceContent/ChoiceContentImageLeft';
+// import ChoiceContentImageLeft from '../components/ChoiceContent/ChoiceContentImageLeft';
 
 
 class HomePage extends Component{

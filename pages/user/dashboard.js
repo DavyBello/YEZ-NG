@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Link from 'next/link'
 import SvgLoader from 'bv-react-svgloader'
-import withCandidatePortal from '../../hoc/candidate/withCandidatePortal'
+import withCandidatePortal from '../../hocs/candidate/withCandidatePortal'
 
 class Dashboard extends Component{
     constructor(props){

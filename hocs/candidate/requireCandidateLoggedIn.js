@@ -1,8 +1,9 @@
+/* eslint-disable no-undef*/
 import React, { Component } from 'react'
 import cookie from 'cookie'
 
-import redirect from '../lib/redirect'
-import checkCandidateLoggedIn from '../lib/auth/checkCandidateLoggedIn'
+import redirect from '../../lib/redirect'
+import checkCandidateLoggedIn from '../../lib/auth/checkCandidateLoggedIn'
 
 export default function requireCandidate(Child) {
     class WrappedComponent extends Component {
@@ -30,6 +31,10 @@ export default function requireCandidate(Child) {
               }
               // If not signed in, send them somewhere more useful
               redirect(context, '/user/login')
+              // let target = `/user/login`
+              // if (context.pathname !== '/user')
+              //   target = `${target}?from=${context.pathname}`
+              // redirect(context, target)
             }
 
             return {
