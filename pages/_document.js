@@ -1,15 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-// import { createGlobalStyle } from 'styled-components'
-//
-// const GlobalStyle = createGlobalStyle`
-//   body {
-//     color: ${props => (props.whiteColor ? 'white' : 'black')};
-//     font-family: ${props => props.theme.fontFamily.primary};
-//   }
-// `
-
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
     const sheet = new ServerStyleSheet()

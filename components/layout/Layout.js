@@ -4,14 +4,15 @@ import Router from 'next/router';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 
-// import { createGlobalStyle } from 'styled-components'
+import { injectGlobal } from 'styled-components'
 
-// const GlobalStyle = createGlobalStyle`
-//   html body {
-//     color: ${props => (props.whiteColor ? 'white' : 'black')};
-//     font-family: ${props => props.theme.fontFamily.primary};
-//   }
-// `
+injectGlobal`
+  body {
+    color: ${props => props.theme.colors.dark};
+    font-family: ${props => props.theme.fontFamily.primary};
+    margin: 0;
+  }
+`
 
 // import '../../assets/styles/vendors/tachyons.min.css'
 import '../../assets/styles/vendors/bootstrap.min.css'
@@ -46,7 +47,6 @@ const Layout = props => (
     {/* <Header /> */}
     <div className="container">{props.children}</div>
     {/* <Footer /> */}
-    {/* <GlobalStyle whiteColor /> */}
   </div>
 );
 
