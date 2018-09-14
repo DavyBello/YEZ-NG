@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styled from 'styled-components';
-import S_Link from '../styled/S_Link'
+import StyledLink from '../styled/StyledLink'
 
 
-const S_HeaderLink = styled(S_Link)`
+const StyledHeaderLink = styled(StyledLink)`
   color: #fff;
   font-style: normal;
   font-weight: bold;
@@ -15,6 +15,6 @@ const S_HeaderLink = styled(S_Link)`
 
 export default ({text="", href=""}) => (
   <Link href={href} passHref>
-    <S_HeaderLink>{text}</S_HeaderLink>
+    <StyledHeaderLink>{text}</StyledHeaderLink>
   </Link>
 )

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import styled, { css } from 'styled-components';
-import S_Link from '../styled/S_Link'
+import StyledLink from '../styled/StyledLink'
 
 const activeStyles = css`
   color: white;
   background-color: ${props => props.theme.colors.primary.main};
 `
-const S_NavLink = styled(S_Link)`
+export const StyledNavLink = styled(StyledLink)`
   color: ${props => props.theme.colors.dark};
   display: block;
   font-weight: 600;
@@ -15,12 +15,21 @@ const S_NavLink = styled(S_Link)`
   text-transform: uppercase;
   transition: all 0.5s ease 0s;
   ${props => props.active ? activeStyles : ''}
-  :hover { ${activeStyles} }
+  :hover {
+    ${activeStyles}
+  }
+  :focus {
+    ${activeStyles}
+  }
+  :active {
+    ${activeStyles}
+  }
 `
-
 
 export default ({label="", href="", active = false}) => (
   <Link href={href} passHref>
-    <S_NavLink active={active}>{label}</S_NavLink>
+    <StyledNavLink active={active}>{label}</StyledNavLink>
   </Link>
 )
+
+// export StyledNavLink

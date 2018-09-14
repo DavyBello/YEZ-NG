@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const S_Link = styled.a`
+const StyledLink = styled.a`
   color: #fff;
   font-style: normal;
   line-height: normal;
@@ -11,4 +11,4 @@ const S_Link = styled.a`
     color: ${props => props.theme.colors.primary.light};
   }
 `
-export default S_Link
+export default StyledLink
