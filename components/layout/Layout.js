@@ -45,7 +45,7 @@ const Layout = props => (
     <TopHeader />
     <NavBar />
     {/* <Header /> */}
-    <div className="container">{props.children}</div>
+    <div className="main">{props.children}</div>
     {/* <Footer /> */}
   </div>
 );

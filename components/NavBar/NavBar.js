@@ -13,7 +13,7 @@ const StyledMenuArea = styled.div`
   transition: 0.5s;
 `
 const StyledLogo = styled.div`
-  padding: 8px 0;
+  padding: 6px 0;
   width: 170px;
 `
 
@@ -24,7 +24,9 @@ text-align: center;
 margin: 18px 0px 18px 0;
 `
 
-const StyledNavMenu = styled.ul`
+const StyledNavMenu = styled.ul.attrs({
+  className: "mb-0"
+})`
   display: inline-flex;
   list-style: outside none none;
 `
