@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const StyledLink = styled.h2`
+const StyledTitle = styled.h2`
   color: ${props => props.theme.colors.primary.main};
-  font-family: Nexa Bold;
+  font-family: ${props => props.theme.fontFamily.secondary};
   font-weight: bold;
   ${'' /* line-height: 35px; */}
   font-size: 35px;
@@ -17,4 +17,4 @@ const StyledLink = styled.h2`
     right: 0;
     width: 55px;
 `
-export default StyledLink
+export default StyledTitle;
