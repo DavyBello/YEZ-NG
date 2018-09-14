@@ -27,7 +27,14 @@ class Nav extends Component {
                     <li key={route.key}>
                       {route.sub ? (
                           <Fragment>
-                            <a href="#">{route.label}<i className="fa fa-caret-down" aria-hidden="true"></i></a>
+                            <NavLink
+                              label={<Fragment>
+                                {route.label} <i className="fa fa-caret-down" aria-hidden="true"></i>
+                              </Fragment>}
+                              href="#"
+                              active={this.activeMenu(route.href)}
+                            />
+                            {/* <a href="#">{route.label}<i className="fa fa-caret-down" aria-hidden="true"></i></a> */}
                           <ul className="drop-menu">
                             {route.sub.map((sub, index) => (
                               <li key={index}>
