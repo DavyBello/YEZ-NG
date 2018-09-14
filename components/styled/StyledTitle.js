@@ -16,5 +16,6 @@ const StyledTitle = styled.h2`
     position: absolute;
     right: 0;
     width: 55px;
+  }
 `
 export default StyledTitle;
