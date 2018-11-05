@@ -4,9 +4,9 @@ import Router from 'next/router';
 import Head from 'next/head';
 import NProgress from 'nprogress';
 
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from "styled-components"
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   body {
     color: ${props => props.theme.colors.dark};
     font-family: ${props => props.theme.fontFamily.primary};
@@ -30,7 +30,8 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 const Layout = props => (
-  <div>
+  <>
+    <GlobalStyle />
     <Head>
       {/* <link rel="shortcut icon" href={favIcon} /> */}
       <link
@@ -47,7 +48,7 @@ const Layout = props => (
     {/* <Header /> */}
     <div className="main">{props.children}</div>
     {/* <Footer /> */}
-  </div>
+  </>
 );
 
 Layout.propTypes = {
