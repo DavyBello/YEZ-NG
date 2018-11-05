@@ -1,7 +1,22 @@
+require('dotenv').config()
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
+
 const withCSS = require("@zeit/next-css");
 
 module.exports = withCSS({
   webpack: config => {
+    config.plugins = config.plugins || []
+    config.plugins = [
+      ...config.plugins,
+      // Read the .env file
+      new Dotenv({
+        /* eslint-disable no-undef */
+        path: path.join(__dirname, '.env'),
+        systemvars: true
+      })
+    ]
+    
     if (config.resolve.alias) {
       delete config.resolve.alias.react;
       delete config.resolve.alias["react-dom"];
